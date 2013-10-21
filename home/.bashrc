@@ -64,27 +64,21 @@ fi
 
 # Execute scripts under .bashrc.d in a specif order.  See README.md for the order
 if [[ -d $HOME/.bashrc.d ]]; then
+    #Useful functions for bashrc.d scripts
+    source $HOME/.bashrc.d/utils.bash
+
     # Execute pre scripts
-    for config in "$HOME"/.bashrc.d/pre/*.bash; do
-        [[ -x $config ]] && source "$config"
-    done
+    source_script "$HOME"/.bashrc.d/pre/*.bash
 
     # Execute any OS specific scripts
-    OS_SCRIPT="$HOME/.bashrc.d/os/$(uname | tr "[:upper:]" "[:lower:]").bash"
-    if [[ -x $OS_SCRIPT ]]; then
-        source $OS_SCRIPT
-    fi
+    source_script "$HOME/.bashrc.d/os/$(uname | tr "[:upper:]" "[:lower:]").bash"
+    source_script "$HOME/.bashrc.d/os/$(uname | tr "[:upper:]" "[:lower:]")-$(distro).bash"
 
     # Execute any host specific scripts
-    HOST_SCRIPT="$HOME/.bashrc.d/host/$(hostname -s | tr "[:upper:]" "[:lower:]").bash"
-    if [[ -x $HOST_SCRIPT ]]; then
-        source $HOST_SCRIPT
-    fi
+    source_script "$HOME/.bashrc.d/host/$(hostname -s | tr "[:upper:]" "[:lower:]").bash"
 
     # Execute post scripts
-    for config in "$HOME"/.bashrc.d/post/*.bash; do
-        [[ -x $config ]] && source "$config"
-    done
+    source_script "$HOME"/.bashrc.d/post/*.bash
 fi
 
 unset -v config
