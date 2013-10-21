@@ -1,0 +1,1 @@
+alias irc="mosh coachz.inetpro.org -- tmux attach -d"
