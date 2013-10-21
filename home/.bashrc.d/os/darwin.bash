@@ -30,6 +30,8 @@ if [[ -d $BREW_PREFIX/lib/python2.7/site-packages ]]; then
 fi
 
 # Set out editor to Sublime Text 2 if we have it
-if [[ -x $(which subl) ]]
+if [[ -x $(which subl) ]]; then
 	export EDITOR='subl -w'
 fi
+
+alias update="brew update && brew upgrade"
