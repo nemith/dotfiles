@@ -1,17 +1,31 @@
-# Frontend to controlling prompt
-
+# Hash a string to a 8-bit integer
 function eightbithash() {
     HASH=$(echo $1 | $(which md5 md5sum))
     echo -ne $(printf "%d" "0x${HASH:0:2}")
 }
 
-# echo the escape unique color for the hostname
+# Generat a unique escape color for the hostname
 function hostcolor() {
     hostname=$(hostname -s)
-    echo -ne $(color $(eightbithash $hostname))
+
+    case $hostname in
+    pompom)
+        echo -ne $(color 226) # Yellow for pompom
+        ;;
+    homestar)
+        echo -ne $(color 75) # Nice blue
+        ;;
+    trogdor)
+         echo -ne $(color 154) # Green for trogdor
+        ;;
+    *)
+        # Hash one for everyone elsse
+        echo -ne $(color $(eightbithash $hostname))
+        ;;
+    esac
 }
 
-
+# Frontend to controlling prompt
 prompt() {
 
     # What's done next depends on the first argument to the function
@@ -26,7 +40,7 @@ prompt() {
 "$(bold):$(nocolor)\w"\
 "$(color 121)"'$(prompt vcs)'"$(nocolor)"\
 '$(prompt job)'\
-"$(color 124)"'$(prompt ret)'"$(nocolor)$(bold)\$$(nocolor)"
+"$(color 124)"'$(prompt ret)'"$(nocolor)$(bold)\$$(nocolor) "
 
             #PS1='\u@\h:\w$(prompt vcs)$(prompt job)$(prompt ret)\$'
             # If Bash 4.0 is available, trim very long paths in prompt
