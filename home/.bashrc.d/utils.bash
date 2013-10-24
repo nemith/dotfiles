@@ -34,3 +34,7 @@ remove_path() {
     export PATH=${PATH/%:/}
 }
 
+# Colors
+function color()   { echo -ne "\[\033[38;5;$1m\]"; }
+function bold()    { echo -ne "\[\033[1m\]"; }
+function nocolor() { echo -ne "\[\033[0m\]"; }

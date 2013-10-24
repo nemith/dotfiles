@@ -1,4 +1,17 @@
 # Frontend to controlling prompt
+
+function eightbithash() {
+    HASH=$(echo $1 | $(which md5 md5sum))
+    echo -ne $(printf "%d" "0x${HASH:0:2}")
+}
+
+# echo the escape unique color for the hostname
+function hostcolor() {
+    hostname=$(hostname -s)
+    echo -ne $(color $(eightbithash $hostname))
+}
+
+
 prompt() {
 
     # What's done next depends on the first argument to the function
@@ -8,45 +21,18 @@ prompt() {
         on)
             # Set up pre-prompt command and prompt format
             PROMPT_COMMAND='ret=$? ; history -a'
-            PS1='\u@\h:\w$(prompt vcs)$(prompt job)$(prompt ret)\$'
+            PS1=\
+"$(hostcolor)\u@\h$(nocolor)"\
+"$(bold):$(nocolor)\w"\
+"$(color 121)"'$(prompt vcs)'"$(nocolor)"\
+'$(prompt job)'\
+"$(color 124)"'$(prompt ret)'"$(nocolor)$(bold)\$$(nocolor)"
 
+            #PS1='\u@\h:\w$(prompt vcs)$(prompt job)$(prompt ret)\$'
             # If Bash 4.0 is available, trim very long paths in prompt
             if ((${BASH_VERSINFO[0]} >= 4)); then
                 PROMPT_DIRTRIM=4
             fi
-
-            # Count available colors, reset, and format (decided shortly)
-            local colors=$( {
-                tput Co || tput colors
-            } 2>/dev/null );
-            local reset=$( {
-                tput me || tput sgr0
-            } 2>/dev/null );
-            local format
-
-            # Check if we have non-bold bright green available
-            if ((colors == 256)); then
-                format=$( {
-                    tput AF 10 || tput setaf 10 \
-                        || tput AF 10 0 0 || tput setaf 10 0 0
-                } 2>/dev/null )
-
-            # If we have only eight colors, use bold green to make it bright
-            elif ((colors == 8)); then
-                format=$( {
-                    tput AF 2 || tput setaf 2
-                    tput md || tput bold
-                } 2>/dev/null )
-
-            # For non-color terminals (!), just use bold
-            else
-                format=$( {
-                    tput md || tput bold
-                } 2>/dev/null )
-            fi
-
-            # String it all together
-            PS1='\['"$format"'\]'"$PS1"'\['"$reset"'\] '
             ;;
 
         # Revert to simple inexpensive prompt

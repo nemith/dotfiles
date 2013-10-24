@@ -1,5 +1,3 @@
-
-
 warn_install() {
 	if [ -z "$2" ]; then
 		command="brew install $1"
