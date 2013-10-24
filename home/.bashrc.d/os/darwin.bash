@@ -1,8 +1,19 @@
 
+
+warn_install() {
+	if [ -z "$2" ]; then
+		command="brew install $1"
+	else
+		command="$2"
+	fi
+	echo "Please install '$1' with '$command'"
+}
+
+
 if [ -x $(which brew) ]; then
 	BREW_PREFIX=$(brew --prefix)
 else
-	echo "Please install 'homebrew' with 'ruby -e \"$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)\""
+	warn_install "homebrew" "ruby -e \"$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)\""
 	BREW_PREFIX=/usr/local
 fi
 
@@ -14,7 +25,7 @@ prepend_path $BREW_PREFIX/sbin
 if [ -f $BREW_PREFIX/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
 else
-	echo "Please install 'bash-compleition from homebrew with 'brew install bash-completion'"
+	warn_install "compleition"
 fi
 
 # Use GNU ls if coreutils are install.  Otherwise turn on BSD ls colors
@@ -34,4 +45,12 @@ if [[ -x $(which subl) ]]; then
 	export EDITOR='subl -w'
 fi
 
+# Support fancy command-line printing
+if [[ -x $(which enscript) ]]; then
+	alias print="enscript --margins=36:36:36:36 -DDuplex:true --font=Courier8 --word-wrap --media=Letter --fancy-header"
+else
+	warn_install "enscript"
+fi
+
+# Quick alias for updating all homebrewed apps
 alias update="brew update && brew upgrade"
