@@ -1,1 +1,4 @@
 export BUILD_MAC_SDK_EXPERIMENTAL=1
+export USE_CCACHE=1
+
+ulimit -S -n 1024
