@@ -34,6 +34,16 @@ remove_path() {
     export PATH=${PATH/%:/}
 }
 
+whiff() {
+  while (($#)); do
+    result=$(which $1)
+    if [ $? -eq 0 ]; then
+      echo $result
+    fi
+    shift
+  done
+}
+
 # Colors
 function color()   { echo -ne "\[\033[38;5;$1m\]"; }
 function bold()    { echo -ne "\[\033[1m\]"; }

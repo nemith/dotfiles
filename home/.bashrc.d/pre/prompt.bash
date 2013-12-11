@@ -1,6 +1,6 @@
 # Hash a string to a 8-bit integer
 function eightbithash() {
-    HASH=$(echo $1 | $(which md5 md5sum))
+    HASH=$(echo $1 | $(whiff md5 md5sum))
     echo -ne $(printf "%d" "0x${HASH:0:2}")
 }
 
