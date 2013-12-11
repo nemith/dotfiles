@@ -36,7 +36,7 @@ remove_path() {
 
 whiff() {
   while (($#)); do
-    result=$(which $1)
+    result=$(which $1) 2>/dev/null
     if [ $? -eq 0 ]; then
       echo $result
     fi
