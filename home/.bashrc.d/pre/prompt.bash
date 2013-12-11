@@ -7,22 +7,20 @@ function eightbithash() {
 # Generat a unique escape color for the hostname
 function hostcolor() {
     hostname=$(hostname -s)
+    while read line; do
+        # remove comments and trim lines
+        line=$(echo $line | sed -e 's:#.*$::g' -e 's/^ *//g' -e 's/ *$//g')
+        host=$(echo $line | cut -d ' ' -f 1)
+        hostcolor=$(echo $line | cut -d ' ' -f 2)
 
-    case $hostname in
-    pompom)
-        echo -ne $(color 226) # Yellow for pompom
-        ;;
-    homestar)
-        echo -ne $(color 75) # Nice blue
-        ;;
-    trogdor)
-         echo -ne $(color 154) # Green for trogdor
-        ;;
-    *)
-        # Hash one for everyone elsse
-        echo -ne $(color $(eightbithash $hostname))
-        ;;
-    esac
+        if [ "$hostname" == "$host" ]; then
+            echo -ne $(color $hostcolor) # Yellow for pompom
+            return
+        fi
+    done < $HOME/.prompt_hosts
+
+    # If we got here just generate a unique hash from the hostname
+   echo -ne $(color $(eightbithash $hostname))
 }
 
 # Frontend to controlling prompt
