@@ -11,10 +11,10 @@ function hostcolor() {
         # remove comments and trim lines
         line=$(echo $line | sed -e 's:#.*$::g' -e 's/^ *//g' -e 's/ *$//g')
         host=$(echo $line | cut -d ' ' -f 1)
-        hostcolor=$(echo $line | cut -d ' ' -f 2)
+        colorcode=$(echo $line | cut -d ' ' -f 2)
 
         if [ "$hostname" == "$host" ]; then
-            echo -ne $(color $hostcolor) # Yellow for pompom
+            echo -ne $(color $colorcode)
             return
         fi
     done < $HOME/.prompt_hosts
