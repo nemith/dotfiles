@@ -1,4 +1,5 @@
 alias irc="mosh coachz.inetpro.org -- tmux attach -d"
+alias dev="mosh dev -- tmux attach -t work -d || tmux new -s work" 
 
 # Colorize grep
 alias grep='grep --color=auto'
