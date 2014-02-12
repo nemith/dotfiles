@@ -1,8 +1,7 @@
-# Source Facebook definitions
-if [ -f /mnt/vol/engshare/admin/scripts/master.bashrc ]; then
-	. /mnt/vol/engshare/admin/scripts/master.bashrc
-fi
+# Continue if not on fb server
+[ ! -f /etc/fbwhoami ] && return
 
-source /etc/bashrc
-source /mnt/vol/engshare/admin/scripts/master.bashrc
-source /home/engshare/admin/scripts/ssh/manage_agent.sh
+# Source Facebook definitions
+source_script /mnt/vol/engshare/admin/scripts/master.bashrc
+source_script /home/engshare/admin/scripts/ssh/manage_agent.sh
+source "$ADMIN_SCRIPTS/ssh/manage_rootcanal.sh"

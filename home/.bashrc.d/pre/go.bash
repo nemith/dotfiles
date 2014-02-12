@@ -1,4 +1,4 @@
-# TODO: check to see if go exists
+[ -x $(whiff go) ]; return
 
 # Set GOPATH
 export GOPATH=$HOME/Devel/go
@@ -7,4 +7,6 @@ export GOPATH=$HOME/Devel/go
 append_path $GOPATH/bin
 
 # Add  gocellar libexec/bin to path
-append_path "$(brew --prefix go)/libexec/bin"
+if [ $(uname | tr "[:upper:]" "[:lower:]") == "darwin" ]; then
+  append_path "$(brew --prefix go)/libexec/bin"
+fi
