@@ -1,0 +1,60 @@
+[submodule "home/.vim/bundle/pathogen"]
+	path = home/.vim/bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+    ignore = dirty
+[submodule "home/.vim/bundle/syntastic"]
+	path = home/.vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic
+    ignore = dirty
+[submodule "home/.vim/bundle/git-vim"]
+	path = home/.vim/bundle/git-vim
+	url = https://github.com/motemen/git-vim
+    ignore = dirty
+[submodule "home/.vim/bundle/snipmate"]
+	path = home/.vim/bundle/snipmate
+	url = https://github.com/garbas/vim-snipmate
+    ignore = dirty
+[submodule "home/.vim/bundle/vim-addon-mw-utils"]
+	path = home/.vim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+    ignore = dirty
+[submodule "home/.vim/bundle/supertab"]
+	path = home/.vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+    ignore = dirty
+[submodule "home/.vim/bundle/minibufexpl"]
+	path = home/.vim/bundle/minibufexpl
+	url = https://github.com/sontek/minibufexpl.vim.git
+    ignore = dirty
+[submodule "home/.vim/bundle/pyflakes"]
+	path = home/.vim/bundle/pyflakes
+	url = https://github.com/mitechie/pyflakes-pathogen.git
+    ignore = dirty
+[submodule "home/.vim/bundle/gundo"]
+	path = home/.vim/bundle/gundo
+	url = https://github.com/sjl/gundo.vim.git
+    ignore = dirty
+[submodule "home/.vim/bundle/pydoc"]
+	path = home/.vim/bundle/pydoc
+	url = https://github.com/fs111/pydoc.vim.git
+    ignore = dirty
+[submodule "home/.vim/bundle/nerdtree"]
+	path = home/.vim/bundle/nerdtree
+	url = https://github.com/vim-scripts/The-NERD-tree.git
+    ignore = dirty
+[submodule "home/.vim/bundle/tagbar"]
+	path = home/.vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar
+    ignore = dirty
+[submodule "home/.vim/bundle/csv.vim"]
+	path = home/.vim/bundle/csv.vim
+	url = https://github.com/chrisbra/csv.vim.git
+    ignore = dirty
+[submodule "home/.vim/bundle/vim-monokai"]
+	path = home/.vim/bundle/vim-monokai
+	url = https://github.com/sickill/vim-monokai.git
+    ignore = dirty
+[submodule "home/.vim/bundle/vim-colors-solarized"]
+	path = home/.vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+    ignore = dirty

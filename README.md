@@ -11,3 +11,5 @@ This is my public repository (castle) of dotfiles to be used with [Homesick](htt
  * OS Specific scripts: The script under .bashrc.d/os/$OSNAME.bash where OSNAME is equal to the lower case version of `uname`
  * Host Specific scripts" The script under .bashrc.d/host/$HOSTNAME.bash where HOSTNAME is equal to the lower case version of `hostname -s`
  * General post-scripts: All executable scripts under .bashrc.d/post/*.bash (sorted alphabetically)
+
+ 
