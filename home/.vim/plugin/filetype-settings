@@ -1,1 +1,0 @@
-/mnt/vol/engshare/admin/scripts/vim/plugin/filetype-settings.vim
