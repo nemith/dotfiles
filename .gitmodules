@@ -58,3 +58,6 @@
 	path = home/.vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
     ignore = dirty
+[submodule "home/.vim/bundle/tlib_vim"]
+	path = home/.vim/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git

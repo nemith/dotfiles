@@ -12,4 +12,15 @@ This is my public repository (castle) of dotfiles to be used with [Homesick](htt
  * Host Specific scripts" The script under .bashrc.d/host/$HOSTNAME.bash where HOSTNAME is equal to the lower case version of `hostname -s`
  * General post-scripts: All executable scripts under .bashrc.d/post/*.bash (sorted alphabetically)
 
- 
+vim
+---
+Vim curently uses pathogen and submodules for all plugins. This means you must init all the submodules after cloning
+
+    git submodule foreach git submodule init
+    git submodule foreach git submodule update
+
+To update the submodules/plugins:
+
+    git submodule foreach git pull
+
+
