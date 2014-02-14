@@ -17,8 +17,9 @@ distro() {
 
 # Source a script if it is executable
 source_script() {
+    [[ "${@:-1}" == "force" ]] && FORCE=1
     for script in $*; do
-        if [[ -x $script ]]; then
+        if [[ -x $script || "$FORCE" == 1 ]]; then
             source $script
         fi
     done
