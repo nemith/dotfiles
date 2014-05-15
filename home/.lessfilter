@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Skip if we don't have pygmentize
+[[ ! -x $(which pygmentize 2>/dev/null) ]] && exit 1
+
+# Custom options to pass pygmentize (can be empty)
+pygmentize_opts="-f terminal256 -O style=solarized_dark256"
+
+# enable pattern list
+shopt -s extglob
+
+# Get a list of supported file names from pygmentize
+lexers="+($(pygmentize -L lexers |
+           perl -ne 'print join("|", split(/, /,$1)) . "|" if /\(filenames ([^\)]+)\)/' | 
+           sed 's/|$//'))"
+
+case "$1" in
+    $lexers)
+        pygmentize $pygmentize_opts "$1";;
+    .bashrc|.bash_aliases|.bash_environment)
+        pygmentize $pygmentize_opts -l sh "$1"
+        ;;
+    *)
+        grep "#\!/bin/bash" "$1" > /dev/null
+        if [ "$?" -eq "0" ]; then
+            pygmentize $pygmentize_opts -l sh "$1"
+        else
+            exit 1
+        fi
+esac
+
+exit 0
