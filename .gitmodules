@@ -22,10 +22,6 @@
 	path = home/.vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
     ignore = dirty
-[submodule "home/.vim/bundle/minibufexpl"]
-	path = home/.vim/bundle/minibufexpl
-	url = https://github.com/sontek/minibufexpl.vim.git
-    ignore = dirty
 [submodule "home/.vim/bundle/pyflakes"]
 	path = home/.vim/bundle/pyflakes
 	url = https://github.com/mitechie/pyflakes-pathogen.git
