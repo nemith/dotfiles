@@ -3,8 +3,10 @@ let g:pathogen_disabled = [ 'pathogen' ]    " don't load self
 call pathogen#infect()                      " load everyhting else
 call pathogen#helptags()                    " load plugin help files
 
-" Useful general stuff, make tabs = 4xspaces, show line numbers, import the "FB standard settings"
-source $ADMIN_SCRIPTS/master.vimrc
+" Facebook
+if filereadable("/etc/fbwhoami")
+    source $ADMIN_SCRIPTS/master.vimrc
+endif
 
 " syntax highlighting
 syntax on
