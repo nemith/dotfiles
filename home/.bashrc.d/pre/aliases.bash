@@ -1,5 +1,8 @@
-alias irc="mosh coachz.inetpro.org -- tmux attach -d"
-alias dev="mosh dev -- tmux attach -t work -d || tmux new -s work" 
+alias vps="mosh coachz.inetpro.org -- tmux attach -d"
+alias dev="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh dev -- tmux attach -t work -d"
+alias fbirc="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh dev -- tmux attach -t fbirc -d"
+
+alias mosh="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh"
 
 # Colorize grep
 alias grep='grep --color=auto'
