@@ -98,7 +98,7 @@ function! DoPythonSettings()
   command! -range C <line1>,<line2> s/\(.*\)/#\1/g
   command! -range U <line1>,<line2> s/\(\s*\)#\(.*\)/\1\2/g
 endfunction
-autocmd BufEnter *.py,*.tw,*.cinc,*.cconf,*.thrift-cvalidator,*.ctest call DoPythonSettings()
+autocmd BufEnter *.py,*.tw,*.cinc,*.cconf,*.thrift-cvalidator,*.ctest,TARGETS call DoPythonSettings()
 
 " Highlight lines longer than 80 chars
 autocmd! BufWinEnter *.php,*.cpp,*.c,*.h,*.java,*.lua,*.js,*.py,*.tw,*.conf,*.thrift,TARGETS let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
