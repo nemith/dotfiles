@@ -1,7 +1,14 @@
+" Must be disabled before loading pathogen
+filetype off
+
 " pathogen to autoload bundles
 let g:pathogen_disabled = [ 'pathogen' ]    " don't load self
 call pathogen#infect()                      " load everyhting else
 call pathogen#helptags()                    " load plugin help files
+
+" re-enable syntax/filetype
+syntax on
+filetype plugin indent on
 
 " Facebook
 if filereadable("/etc/fbwhoami")
