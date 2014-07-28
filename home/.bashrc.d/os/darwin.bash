@@ -38,6 +38,11 @@ if [[ -d $BREW_PREFIX/lib/python2.7/site-packages ]]; then
 	export PYTHONPATH=$BREW_PREFIX/lib/python2.7/site-packages:$PYTHONPATH
 fi
 
+# Add users site-packages bin to path
+if [ -d "$HOME/Library/Python/2.7/bin"  ]; then
+    append_path "$HOME/Library/Python/2.7/bin"
+fi
+
 # Set out editor to Sublime Text 2 if we have it
 if [[ -x $(which subl) ]]; then
 	export EDITOR='subl -w'
@@ -62,3 +67,5 @@ function java_use() {
     export PATH=$JAVA_HOME/bin:$PATH
     java -version
 }
+
+
