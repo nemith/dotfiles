@@ -29,6 +29,10 @@ fi
 # Use GNU ls if coreutils are install.  Otherwise turn on BSD ls colors
 if [[ -x $BREW_PREFIX/bin/gls ]]; then
 	alias ls='gls --color=auto -F'
+
+    # New dircolors
+    eval $(gdircolors $HOME/.dircolors/solarized/dircolors.256dark)
+
 else
 	alias ls='ls -GF'
 fi

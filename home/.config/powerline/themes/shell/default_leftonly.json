@@ -4,7 +4,7 @@
 		"hostname": {
 			"before": " ",
 			"args": {
-				"only_if_ssh": false,
+				"only_if_ssh": true,
                 "exclude_domain": true
 			}
 		},
