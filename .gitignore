@@ -1,1 +1,5 @@
 home/.vim/view/**
+
+# Ignore all vim bundles (since we use Vundle now) except for vundle itself
+home/.vim/bundle/**
+!home/.vim/bundle/vundle/**
