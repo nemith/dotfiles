@@ -1,4 +1,4 @@
-" Of course
+"f Of course
 set nocompatible
 
 " Required Vundle setup
@@ -9,18 +9,15 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'Raimondi/delimitMate'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chrisbra/csv.vim'
 Bundle 'ervandew/supertab'
-Bundle 'fatih/vim-go'
 Bundle 'fs111/pydoc.vim'
-Bundle 'garbas/vim-snipmate'
+"Bundle 'garbas/vim-snipmate'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'mitechie/pyflakes-pathogen'
-Bundle 'motemen/git-vim'
 Bundle 'scottdware/vim-slax'
 Bundle 'scrooloose/syntastic'
 Bundle 'sickill/vim-monokai'
@@ -28,6 +25,22 @@ Bundle 'sjl/gundo.vim'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-pathogen'
 Bundle 'vim-scripts/The-NERD-tree'
+Bundle 'bling/vim-airline'
+Bundle 'jlanzarotta/bufexplorer'
+Bundle 'henrik/vim-indexed-search'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'editorconfig/editorconfig-vim'
+Bundle 'godlygeek/tabular'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+
+" SCM Plugins
+"Bundle 'motemen/git-vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+
+" Languge specific Plugins
+Bundle 'fatih/vim-go'
 
 " Facebook
 if filereadable("/etc/fbwhoami")
@@ -38,6 +51,13 @@ endif
 syntax on
 filetype on                 " enables filetype detection
 filetype plugin indent on   " enables filetype specific plugins
+
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline_theme="powerlineish"
+let g:airline#extensions#syntastic#enabled =  1
 
 "Colors
 set t_Co=256
@@ -97,13 +117,18 @@ set expandtab
 
 " Show Statusline on bottom with GIT BRANCH info
 set laststatus=2
-set statusline=%{GitBranch()}
 
 " tabs
 set showtabline=2  "Always show tabs
 imap ,t <Esc>:tabnew<CR>
 map <D-A-Right> :tabn<CR>
 map <D-A-Left>  :tabp<CR>
+
+" Autoreload vimrc on save
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
 
 " Python Specific Settings
 function! DoPythonSettings()
@@ -184,3 +209,12 @@ aug QFClose
         au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 aug END
 
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
