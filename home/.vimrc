@@ -1,14 +1,33 @@
-" Must be disabled before loading pathogen
+" Of course
+set nocompatible
+
+" Required Vundle setup
 filetype off
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+"
+Bundle 'gmarik/vundle'
 
-" pathogen to autoload bundles
-let g:pathogen_disabled = [ 'pathogen' ]    " don't load self
-call pathogen#infect()                      " load everyhting else
-call pathogen#helptags()                    " load plugin help files
-
-" re-enable syntax/filetype
-syntax on
-filetype plugin indent on
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'Raimondi/delimitMate'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'chrisbra/csv.vim'
+Bundle 'ervandew/supertab'
+Bundle 'fatih/vim-go'
+Bundle 'fs111/pydoc.vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'kien/ctrlp.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'mitechie/pyflakes-pathogen'
+Bundle 'motemen/git-vim'
+Bundle 'scottdware/vim-slax'
+Bundle 'scrooloose/syntastic'
+Bundle 'sickill/vim-monokai'
+Bundle 'sjl/gundo.vim'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tpope/vim-pathogen'
+Bundle 'vim-scripts/The-NERD-tree'
 
 " Facebook
 if filereadable("/etc/fbwhoami")
@@ -83,6 +102,8 @@ set statusline=%{GitBranch()}
 " tabs
 set showtabline=2  "Always show tabs
 imap ,t <Esc>:tabnew<CR>
+map <D-A-Right> :tabn<CR>
+map <D-A-Left>  :tabp<CR>
 
 " Python Specific Settings
 function! DoPythonSettings()
