@@ -27,6 +27,9 @@ set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
+" Enable the mouse
+set mouse=a
+
 " supertab - for tab completion
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
@@ -76,6 +79,10 @@ set expandtab
 " Show Statusline on bottom with GIT BRANCH info
 set laststatus=2
 set statusline=%{GitBranch()}
+
+" tabs
+set showtabline=2  "Always show tabs
+imap ,t <Esc>:tabnew<CR>
 
 " Python Specific Settings
 function! DoPythonSettings()
