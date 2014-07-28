@@ -1,4 +1,3 @@
-"f Of course
 set nocompatible
 
 " Required Vundle setup
@@ -11,12 +10,11 @@ Bundle 'gmarik/vundle'
 "Bundle 'garbas/vim-snipmate'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'SirVer/ultisnips'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'chrisbra/csv.vim'
 Bundle 'editorconfig/editorconfig-vim'
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
 Bundle 'fs111/pydoc.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'henrik/vim-indexed-search'
@@ -35,6 +33,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-pathogen'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/The-NERD-tree'
+Bundle 'Shougo/neocomplete.vim'
 
 " SCM Plugins
 "Bundle 'motemen/git-vim'
@@ -211,12 +210,6 @@ aug QFClose
         au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 aug END
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
 
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
