@@ -156,7 +156,3 @@ aug QFClose
         au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 aug END
 
-" Golang
-au BufRead,BufNewFile *.go set filetype=go
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-
