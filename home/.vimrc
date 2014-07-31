@@ -42,6 +42,8 @@ Bundle 'airblade/vim-gitgutter'
 
 " Languge specific Plugins
 Bundle 'fatih/vim-go'
+Bundle 'ClockworkNet/vim-junos-syntax'
+Bundle 'CyCoreSystems/vim-cisco-ios'
 
 " Facebook
 if filereadable("/etc/fbwhoami")
