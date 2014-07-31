@@ -63,12 +63,23 @@ let g:airline#extensions#syntastic#enabled =  1
 "Colors
 set t_Co=256
 set background=dark
-"colorscheme monokai
-let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme monokai
+"let g:solarized_termcolors=256
+"colorscheme solarized
 
 " Enable the mouse
 set mouse=a
+
+" Keys
+
+" Heresy
+inoremap <c-a> <esc>I
+inoremap <c-e> <esc>A
+nnoremap <c-a> I
+nnoremap <c-e> A
+
+" Save some typing
+nnoremap ; :
 
 " supertab - for tab completion
 au FileType python set omnifunc=pythoncomplete#Complete
