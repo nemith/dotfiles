@@ -1,3 +1,6 @@
+# bail if not OS X
+[ $(uname) != "Darwin" ] && return
+
 warn_install() {
 	if [ -z "$2" ]; then
 		command="brew install $1"
@@ -23,7 +26,7 @@ prepend_path $BREW_PREFIX/sbin
 if [ -f $BREW_PREFIX/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
 else
-	warn_install "compleition"
+	warn_install "bash-completion"
 fi
 
 # Use GNU ls if coreutils are install.  Otherwise turn on BSD ls colors
@@ -34,6 +37,7 @@ if [[ -x $BREW_PREFIX/bin/gls ]]; then
     eval $(gdircolors $HOME/.dircolors/solarized/dircolors.256dark)
 
 else
+	warn_install "coreutils"
 	alias ls='ls -GF'
 fi
 

@@ -15,16 +15,6 @@ distro() {
     return
 }
 
-# Source a script if it is executable
-source_script() {
-    [[ "${@:-1}" == "force" ]] && FORCE=1
-    for script in $*; do
-        if [[ -x $script || "$FORCE" == 1 ]]; then
-            source $script
-        fi
-    done
-}
-
 # PATH munging tools
 append_path() { NEW=${1/%\//}; [[ -d $NEW ]] || return; remove_path $NEW; export PATH="$PATH:$NEW"; }
 prepend_path() { NEW=${1/%\//}; [[ -d $NEW ]] || return; remove_path $NEW; export PATH="$NEW:$PATH"; }
@@ -35,6 +25,7 @@ remove_path() {
     export PATH=${PATH/%:/}
 }
 
+# whiff is like which but returns the first match
 whiff() {
   while (($#)); do
     result=$(which $1 2>/dev/null)

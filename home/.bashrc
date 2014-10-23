@@ -62,23 +62,19 @@ if ((${BASH_VERSINFO[0]} >= 4)); then
     shopt -s globstar
 fi
 
-# Execute scripts under .bashrc.d in a specif order.  See README.md for the order
+# Source a script if it is executable
+source_script() {
+    [[ "${@:-1}" == "force" ]] && FORCE=1
+    for script in $*; do
+        if [[ -x $script || "$FORCE" == 1 ]]; then
+            source $script
+        fi
+    done
+}
+
+# Execute scripts under .bashrc.d 
 if [[ -d $HOME/.bashrc.d ]]; then
-    #Useful functions for bashrc.d scripts
-    source $HOME/.bashrc.d/utils.bash
-
-    # Execute pre scripts
-    source_script "$HOME"/.bashrc.d/pre/*.bash
-
-    # Execute any OS specific scripts
-    source_script "$HOME/.bashrc.d/os/$(uname | tr "[:upper:]" "[:lower:]").bash"
-    source_script "$HOME/.bashrc.d/os/$(uname | tr "[:upper:]" "[:lower:]")-$(distro).bash"
-
-    # Execute any host specific scripts
-    source_script "$HOME/.bashrc.d/host/$(hostname -s | tr "[:upper:]" "[:lower:]").bash"
-
-    # Execute post scripts
-    source_script "$HOME"/.bashrc.d/post/*.bash
+    source_script "$HOME"/.bashrc.d/*.bash
 fi
 
 unset -v config
