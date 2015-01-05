@@ -1,4 +1,4 @@
-[ -x $(whiff go) ] && return
+[ ! -x $(whiff go) ] && return
 
 # Set GOPATH
 export GOPATH=$HOME/Devel/go

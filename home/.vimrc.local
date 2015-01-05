@@ -1,0 +1,73 @@
+"" Plugins
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'sjl/gundo.vim'
+
+"SCM
+NeoBundle 'ludovicchabant/vim-lawrencium'   "hg support
+
+" Misc Languages
+NeoBundle 'chrisbra/csv.vim'
+NeoBundle 'scottdware/vim-slax'
+NeoBundle 'ClockworkNet/vim-junos-syntax'
+NeoBundle 'CyCoreSystems/vim-cisco-ios'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'Z1MM32M4N/vim-superman'  		"man pages in vim with syntax :)
+
+" Python
+NeoBundle 'tell-k/vim-autopep8'
+NeoBundle 'fs111/pydoc.vim'
+"
+" CSV 
+NeoBundle 'altercation/vim-colors-solarized'
+
+"Facebook'isms
+if filereadable("/etc/fbwhoami")
+	source $ADMIN_SCRIPTS/master.vimrc
+
+	" Facebook file types written in python
+	autocmd BufNewFile,BufRead *.tw,*.cinc,*.cconf,*.thrift-cvalidator,*.ctest,TARGETS set filetype=python
+endif
+
+"" Auto reload .vimrc
+augroup myvimrc
+	au!
+	au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc,.vimrc.local so $MYVIMRC
+augroup END
+
+" Font (if GUI)
+if has("gui_macvim") || has("gui_vimr")
+	set guifont=Monaco\ for\ Powerline:h10
+endif
+
+" Solarized Color
+let g:solarized_termcolors=256
+colorscheme solarized
+
+" Mouse
+set mouse=a   		"enable mouse
+set mousehide 		"hide when characters are typed
+set ttyfast   		"assume a tast terminal connection 
+
+" Keys
+nnoremap ; :		" Save an extra keystroke
+
+" Heresy 
+inoremap <c-a> <esc>I
+inoremap <c-e> <esc>A
+nnoremap <c-a> I
+nnoremap <c-e> A
+
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#syntastic#enabled = 1
+
+
+
