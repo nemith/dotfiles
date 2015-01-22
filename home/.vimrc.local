@@ -51,13 +51,17 @@ endif
 let g:solarized_termcolors=256
 colorscheme solarized
 
+"
+set number
+
 " Mouse
 set mouse=a   		"enable mouse
 set mousehide 		"hide when characters are typed
 set ttyfast   		"assume a tast terminal connection 
 
 " Keys
-nnoremap ; :		" Save an extra keystroke
+nnoremap ; :
+nnoremap <silent> <F5> :set invnumber<cr>
 
 " Heresy 
 inoremap <c-a> <esc>I
@@ -69,5 +73,6 @@ nnoremap <c-e> A
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 
-
-
+" indentLine
+let g:indentLine_char = '┆'
+let g:indentLine_color_term = 236
