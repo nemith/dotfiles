@@ -31,7 +31,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
@@ -152,12 +152,11 @@ set nobackup
 set noswapfile
 
 set fileformats=unix,dos,mac
-set backspace=indent,eol,start
 set showcmd
 set shell=/bin/sh
 
 "*****************************************************************************
-"" Visual Settigns
+"" Visual Settings
 "*****************************************************************************
 syntax on
 set ruler
@@ -171,7 +170,7 @@ set mousemodel=popup
 set t_Co=256
 set nocursorline
 set guioptions=egmrti
-set gfn=Monospace\ 8
+set gfn=Monospace\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -200,9 +199,6 @@ set scrolloff=3
 
 "" Status bar
 set laststatus=2
-
-"" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
 "" Use modeline overrides
 set modeline
@@ -435,6 +431,7 @@ let g:jedi#completions_command = "<C-Space>"
 
 " syntastic
 let g:syntastic_python_checkers=['python', 'flake8']
+let g:syntastic_python_flake8_post_args='--ignore=W391'
 
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1

@@ -2,6 +2,8 @@
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 
+export CODE=$HOME/code
+
 # Vim man
 vman() {
     vim -c "SuperMan $*"
@@ -10,3 +12,4 @@ vman() {
         echo "No manual entry for $*"
     fi
 }
+
