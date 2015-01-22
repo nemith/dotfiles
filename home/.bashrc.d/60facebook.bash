@@ -40,3 +40,7 @@ function fbgopath {
     echo $GOPATH
     export GOPATH
 }
+
+alias prod='FBNET_SANDBOX="*production*"'
+alias fbnet_dbdev='db xdb.fbnet-dev --database bbennett'
+alias fbnet_db='db cdb.fbnet'
