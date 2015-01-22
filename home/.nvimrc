@@ -6,20 +6,20 @@ if has('vim_starting')
   set nocompatible               " Be iMproved
 
   " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.nvim/bundle/neobundle.vim/
 endif
 
-let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
+let neobundle_readme=expand('~/.nvim/bundle/neobundle.vim/README.md')
 
 if !filereadable(neobundle_readme)
   echo "Installing NeoBundle..."
   echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
+  silent !mkdir -p ~/.nvim/bundle
+  silent !git clone https://github.com/Shougo/neobundle.vim ~/.nvim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.nvim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -495,6 +495,6 @@ let g:tagbar_type_ruby = {
 
 
 "" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
+if filereadable(expand("~/.nvimrc.local"))
+  source ~/.nvimrc.local
 endif

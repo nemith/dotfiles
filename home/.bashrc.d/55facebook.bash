@@ -7,6 +7,7 @@ source /mnt/vol/engshare/admin/scripts/master.bashrc
 source /home/engshare/admin/scripts/ssh/manage_agent.sh
  
 export FBCODE=$HOME/fbcode
+export CODE=$HOME/local/code
 
 function fbhostname {
     host=$1

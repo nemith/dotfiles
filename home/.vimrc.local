@@ -1,14 +1,18 @@
 "" Plugins
+NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'corntrace/bufexplorer'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-repeat'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'rbgrouleff/bclose.vim'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'sjl/gundo.vim'
 
 "SCM
 NeoBundle 'ludovicchabant/vim-lawrencium'   "hg support
@@ -57,7 +61,7 @@ set number
 " Mouse
 set mouse=a   		"enable mouse
 set mousehide 		"hide when characters are typed
-set ttyfast   		"assume a tast terminal connection 
+"set ttyfast   		"assume a tast terminal connection 
 
 " Keys
 nnoremap ; :

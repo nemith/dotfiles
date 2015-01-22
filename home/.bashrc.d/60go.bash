@@ -1,7 +1,7 @@
 [ ! -x $(whiff go) ] && return
 
 # Set GOPATH
-export GOPATH=$HOME/Devel/go
+export GOPATH=$CODE/go
 
 #Add GOPATH/bin to path
 append_path $GOPATH/bin
