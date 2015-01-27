@@ -23,3 +23,10 @@ alias nowdate='date +"%d-%m-%Y"'
 if [ -x $(which sudo) ]; then 
 	alias su='sudo -i'
 fi
+
+if [ -x $(whiff nvim) ]; then
+	alias vi='nvim'
+	alias vim='nvim'
+else
+	alias vi='vim'
+fi

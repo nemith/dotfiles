@@ -57,7 +57,7 @@ NeoBundle 'tomasr/molokai'
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
 
-let g:vim_bootstrap_langs = "perl,c,ruby,php,go,python,html,javascript"
+let g:vim_bootstrap_langs = "perl,c,ruby,lua,php,go,python,html,javascript"
 
 "" Custom bundles
 
@@ -77,6 +77,10 @@ NeoBundle "scrooloose/syntastic"
 
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'c9s/perlomni.vim'
+
+
+NeoBundle "scrooloose/syntastic"
+NeoBundle "majutsushi/tagbar"
 
 
 "" HTML Bundle
@@ -445,6 +449,11 @@ let g:tagbar_autofocus = 1
 let g:javascript_enable_domhtmlcss = 1
 
 
+
+
+" Tagbar
+nmap <silent> <F4> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
 
 
 
