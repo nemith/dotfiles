@@ -30,7 +30,7 @@ NeoBundle 'Z1MM32M4N/vim-superman'  		"man pages in vim with syntax :)
 NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'fs111/pydoc.vim'
 "
-" CSV 
+" CSV
 NeoBundle 'altercation/vim-colors-solarized'
 
 "Facebook'isms
@@ -62,13 +62,13 @@ set number
 " Mouse
 set mouse=a   		"enable mouse
 set mousehide 		"hide when characters are typed
-"set ttyfast   		"assume a tast terminal connection 
+"set ttyfast   		"assume a tast terminal connection
 
 " Keys
 nnoremap ; :
 nnoremap <silent> <F5> :set invnumber<cr>
 
-" Heresy 
+" Heresy
 map <C-a> <Home>
 map <C-e> <End>
 
@@ -82,6 +82,10 @@ inoremap <C-n> <Esc>:tabnext<CR>i
 " Golang
 let g:go_fmt_command = "goimports"
 
+"Remove trailing whitespace
+autocmd BufWritePre * silent! :%s/\s\+$//e
+
+
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
@@ -93,4 +97,4 @@ let g:indentLine_color_term = 236
 " NERDTreeTabs
 "nnoremap <silent> <F2> :NERDTreeTabsFind<CR>
 "noremap <F3> :NERDTreeTabsToggle<CR>
-"let g:nerdtree_tabs_open_on_console_startup=1 
+"let g:nerdtree_tabs_open_on_console_startup=1
