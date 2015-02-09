@@ -6,8 +6,18 @@ source /etc/bashrc
 source /mnt/vol/engshare/admin/scripts/master.bashrc
 source /home/engshare/admin/scripts/ssh/manage_agent.sh
  
+export LOCALUSERDIR=/data/users/bbennett
 export FBCODE=$HOME/fbcode
 export CODE=$HOME/local/code
+
+export HOMEBREW_PREFIX="$LOCALUSERDIR/linuxbrew"
+export HOMEBREW_CACHE="$HOMEBREW_PREFIX/cache"
+
+if [ -d $HOMEBREW_PREFIX ]; then
+  export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+  export MANPATH="$HOMEBREW_PREFIX/share/man:$MANPATH"
+  export INFOPATH="$HOMEBREW_PREFIX/share/info:$INFOPATH"
+fi
 
 function fbhostname {
     host=$1
