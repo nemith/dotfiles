@@ -86,6 +86,9 @@ let g:go_fmt_command = "goimports"
 autocmd BufWritePre * silent! :%s/\s\+$//e
 
 
+" vim-go
+let g:go_fmt_command = "goimports"
+
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
