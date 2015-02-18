@@ -16,6 +16,7 @@ if !filereadable(neobundle_readme)
   echo ""
   silent !mkdir -p ~/.nvim/bundle
   silent !git clone https://github.com/Shougo/neobundle.vim ~/.nvim/bundle/neobundle.vim/
+  let g:not_set_color = "yes"
 endif
 
 " Required:
@@ -37,6 +38,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
+NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'windows' : 'tools\\update-dll-mingw',
@@ -58,6 +60,7 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'sherzberg/vim-bootstrap-updater'
 
 let g:vim_bootstrap_langs = "perl,c,ruby,lua,php,go,python,html,javascript"
+let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 
 "" Custom bundles
 
@@ -88,6 +91,7 @@ NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'tpope/vim-haml'
+NeoBundle 'mattn/emmet-vim'
 
 
 "" Go Lang Bundle
@@ -107,6 +111,11 @@ NeoBundle "thoughtbot/vim-rspec"
 NeoBundle "majutsushi/tagbar"
 
 
+
+"" Include user's extra bundle
+if filereadable(expand("~/.nvimrc.local.bundles"))
+  source ~/.nvimrc.local.bundles
+endif
 
 call neobundle#end()
 
@@ -167,8 +176,9 @@ set ruler
 set number
 
 let no_buffers_menu=1
-highlight BadWhitespace ctermbg=red guibg=red
-colorscheme molokai
+if !exists('g:not_set_color')
+  colorscheme molokai
+endif
 
 set mousemodel=popup
 set t_Co=256
@@ -212,13 +222,30 @@ set title
 set titleold="Terminal"
 set titlestring=%F
 
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\ %{fugitive#statusline()}
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+if exists("*fugitive#statusline")
+  set statusline+=%{fugitive#statusline()}
+endif
 
 let g:airline_theme = 'powerlineish'
-let g:airline_enable_branch = 1
+let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 "*****************************************************************************
 "" Abbreviations
@@ -267,14 +294,6 @@ if !exists('*s:setupWrapping')
   endfunction
 endif
 
-if !exists('*TrimWhiteSpace')
-  function TrimWhiteSpace()
-    let @*=line(".")
-    %s/\s*$//e
-    ''
-  endfunction
-endif
-
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
@@ -302,13 +321,6 @@ augroup vimrc-make-cmake
   autocmd FileType make setlocal noexpandtab
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
-
-if has("gui_running")
-  augroup vimrc-white-space
-    autocmd!
-    autocmd BufWritePre * :call TrimWhiteSpace()
-  augroup END
-endif
 
 set autoread
 
@@ -370,10 +382,7 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 
 " vim-airline
-let g:airline_enable_syntastic = 1
-
-"" Remove trailing whitespace on <leader>S
-nnoremap <silent> <leader>S :call TrimWhiteSpace()<cr>:let @/=''<CR>
+let g:airline#extensions#syntastic#enabled = 1
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
@@ -408,6 +417,7 @@ vmap > >gv
 
 "" Open current line on GitHub
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
+
 "" Custom configs
 
 " Tagbar
@@ -501,6 +511,7 @@ let g:tagbar_type_ruby = {
         \ 'F:singleton methods'
     \ ]
 \ }
+
 
 
 "" Include user's local vim config
