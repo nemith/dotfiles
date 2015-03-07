@@ -59,7 +59,7 @@ NeoBundle 'tomasr/molokai'
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
 
-let g:vim_bootstrap_langs = "perl,c,ruby,lua,php,go,python,html,javascript"
+let g:vim_bootstrap_langs = "javascript,ruby,python,c,php,html,lua,perl,go"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 
 "" Custom bundles
@@ -157,7 +157,6 @@ set smartcase
 
 "" Encoding
 set bomb
-set ttyfast
 set binary
 
 "" Directories for swp files
