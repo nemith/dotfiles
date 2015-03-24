@@ -15,6 +15,8 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'ryanoasis/vim-webdevicons'
+NeoBundle 'tmux-plugins/vim-tmux'
+NeoBundle 'tmux-plugins/vim-tmux-focus-events'
 
 "SCM
 NeoBundle 'ludovicchabant/vim-lawrencium'   "hg support
@@ -34,6 +36,9 @@ NeoBundle 'fs111/pydoc.vim'
 " CSV
 NeoBundle 'altercation/vim-colors-solarized'
 
+" Jinja
+NeoBundle "mitsuhiko/vim-jinja"
+
 "Facebook'isms
 if filereadable("/etc/fbwhoami")
 	source $ADMIN_SCRIPTS/master.vimrc
@@ -41,12 +46,6 @@ if filereadable("/etc/fbwhoami")
 	" Facebook file types written in python
 	autocmd BufNewFile,BufRead *.tw,*.cinc,*.cconf,*.thrift-cvalidator,*.ctest,TARGETS set filetype=python
 endif
-
-"" Auto reload .vimrc
-augroup myvimrc
-	au!
-	au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc,.vimrc.local so $MYVIMRC
-augroup END
 
 " Font (if GUI)
 if has("gui_macvim") || has("gui_vimr")
@@ -59,6 +58,7 @@ colorscheme solarized
 
 "
 set number
+set modelines=5
 
 " Mouse
 set mouse=a   		"enable mouse

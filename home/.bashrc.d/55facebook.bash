@@ -4,8 +4,7 @@
 # Source Facebook definitions
 source /etc/bashrc
 source /mnt/vol/engshare/admin/scripts/master.bashrc
-source /home/engshare/admin/scripts/ssh/manage_agent.sh
- 
+
 export LOCALUSERDIR=/data/users/bbennett
 export FBCODE=$HOME/fbcode
 export CODE=$HOME/local/code
@@ -28,7 +27,7 @@ function fbhostname {
 }
 
 # Set gopath if we are on our devserver
-if [ -d /data/users/$USER/go ]; then 
+if [ -d /data/users/$USER/go ]; then
     export GOPATH=/data/users/$USER/go
     append_path $GOPATH/bin
 fi
@@ -53,5 +52,4 @@ function fbgopath {
 }
 
 alias prod='FBNET_SANDBOX="*production*"'
-alias fbnet_dbdev='db xdb.fbnet-dev --database bbennett'
 alias fbnet_db='db cdb.fbnet'

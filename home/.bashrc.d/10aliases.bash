@@ -1,7 +1,5 @@
 alias vps="mosh coachz.brbe.net -- tmux attach -d"
 alias dev="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh dev -- tmux attach -t work -d"
-alias fbirc="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh dev -- tmux attach -t fbirc -d"
-
 alias mosh="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh"
 
 # Colorize grep
@@ -30,3 +28,5 @@ if [ -x $(whiff nvim) ]; then
 else
 	alias vi='vim'
 fi
+
+alias nssh='TERM=screen ssh -o PubkeyAuthentication=no'
