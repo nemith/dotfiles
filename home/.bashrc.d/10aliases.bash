@@ -30,3 +30,5 @@ else
 fi
 
 alias nssh='TERM=screen ssh -o PubkeyAuthentication=no'
+alias nscp='scp -o PubkeyAuthentication=no'
+
