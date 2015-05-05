@@ -14,6 +14,7 @@ NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'ryanoasis/vim-webdevicons'
 
 "SCM
 NeoBundle 'ludovicchabant/vim-lawrencium'   "hg support

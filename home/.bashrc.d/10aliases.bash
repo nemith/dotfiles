@@ -1,4 +1,4 @@
-alias vps="mosh coachz.inetpro.org -- tmux attach -d"
+alias vps="mosh coachz.brbe.net -- tmux attach -d"
 alias dev="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh dev -- tmux attach -t work -d"
 alias fbirc="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh dev -- tmux attach -t fbirc -d"
 
@@ -20,7 +20,7 @@ alias nowtime=now
 alias nowdate='date +"%d-%m-%Y"'
 
 # Use sudo instead of su if availabe
-if [ -x $(which sudo) ]; then 
+if [ -x $(which sudo) ]; then
 	alias su='sudo -i'
 fi
 
