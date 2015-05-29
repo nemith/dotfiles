@@ -2,7 +2,8 @@ alias vps="mosh coachz.brbe.net -- tmux attach -d"
 alias dev="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh dev -- tmux attach -t work -d"
 alias mosh="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh"
 
-# Colorize grep
+# Colorize
+alias ls='ls --color -F'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -13,7 +14,7 @@ if [ -x "$(which colordiff)" ]; then
 fi
 
 alias path='echo -e ${PATH//:/\\n}'
-alias now='date +"%T'
+alias now='date +"%T"'
 alias nowtime=now
 alias nowdate='date +"%d-%m-%Y"'
 
