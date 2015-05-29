@@ -1,5 +1,5 @@
 # bail if not OS X
-[ $(uname) != "Darwin" ] && return
+[ "$(uname)" != "Darwin" ] && return
 
 warn_install() {
 	if [ -z "$2" ]; then
@@ -11,7 +11,7 @@ warn_install() {
 }
 
 
-if [ -x $(which brew) ]; then
+if [ -x "$(which brew)" ]; then
 	BREW_PREFIX=$(brew --prefix)
 else
 	warn_install "homebrew" "ruby -e \"$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)\""
@@ -24,7 +24,7 @@ prepend_path $BREW_PREFIX/sbin
 
 # Include brew installed bash_compleitions
 if [ -f $BREW_PREFIX/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion
+    source "$(brew --prefix)"/etc/bash_completion
 else
 	warn_install "bash-completion"
 fi
@@ -34,7 +34,7 @@ if [[ -x $BREW_PREFIX/bin/gls ]]; then
 	alias ls='gls --color=auto -F'
 
     # New dircolors
-    eval $(gdircolors $HOME/.dircolors/solarized/dircolors.256dark)
+    eval "$(gdircolors "$HOME/.dircolors/solarized/dircolors.256dark")"
 
 else
 	warn_install "coreutils"
@@ -65,15 +65,4 @@ fi
 
 # Quick alias for updating all homebrewed apps
 alias update="brew update && brew upgrade"
-
-
-# Function for switching java 
-alias java_ls='/usr/libexec/java_home -V 2>&1 | grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
-
-function java_use() {
-    export JAVA_HOME=$(/usr/libexec/java_home -v $1)
-    export PATH=$JAVA_HOME/bin:$PATH
-    java -version
-}
-
 
