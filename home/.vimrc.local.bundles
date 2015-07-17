@@ -38,3 +38,4 @@ NeoBundle 'altercation/vim-colors-solarized'
 " Jinja
 NeoBundle "mitsuhiko/vim-jinja"
 
+NeoBundle "vitalk/vim-simple-todo"
