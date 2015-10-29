@@ -18,9 +18,9 @@ if [ -d $HOMEBREW_PREFIX ]; then
   export INFOPATH="$HOMEBREW_PREFIX/share/info:$INFOPATH"
 fi
 
-if [ -d "$DEVTOOLS/arcanist/bin" ]; then
-  export PATH="$DEVTOOLS/arcanist/bin:$PATH"
-fi
+# <meme name='aliens'>Java</meme>
+append_path /opt/ant/bin:
+export ANT_HOME=/opt/ant
 
 function fbhostname {
     host=$1
