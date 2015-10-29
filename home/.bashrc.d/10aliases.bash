@@ -1,6 +1,5 @@
 alias vps="mosh coachz.brbe.net -- tmux attach -d"
-alias dev="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh dev -- tmux attach -t work -d"
-alias mosh="perl -E ' print \"\e[?1005h\e[?1002h\" ' && mosh"
+alias dev="mosh -6 dev -- tmux attach -t work -d"
 
 # Colorize
 alias ls='ls --color -F'
