@@ -5,3 +5,5 @@ home/.vim/bundle/**
 # Nvim
 home/.config/nvim/session/**
 home/.config/nvim/bundle/**
+
+*.pyc
