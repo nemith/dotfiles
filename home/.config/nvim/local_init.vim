@@ -1,6 +1,7 @@
 "Facebook'isms
 if filereadable("/etc/fbwhoami")
 	source $ADMIN_SCRIPTS/master.vimrc
+  source /usr/facebook/ops/rc/master.vimrc
 
 	" Facebook file types written in python
 	autocmd BufNewFile,BufRead *.tw,*.cinc,*.cconf,*.thrift-cvalidator,*.ctest,TARGETS set filetype=python

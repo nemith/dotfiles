@@ -3,7 +3,7 @@
 
 # Source Facebook definitions
 source /etc/bashrc
-source /mnt/vol/engshare/admin/scripts/master.bashrc
+source /usr/facebook/ops/rc/master.bashrc
 
 export LOCALUSERDIR=/data/users/bbennett
 export FBCODE=$HOME/fbcode
