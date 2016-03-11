@@ -27,6 +27,7 @@ NeoBundle 'ClockworkNet/vim-junos-syntax'
 NeoBundle 'CyCoreSystems/vim-cisco-ios'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'Z1MM32M4N/vim-superman'  		"man pages in vim with syntax :)
+NeoBundle 'vimoutliner/vimoutliner'
 
 " Python
 NeoBundle 'tell-k/vim-autopep8'
