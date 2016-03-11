@@ -6,6 +6,7 @@ home/.vim/bundle/**
 # Nvim
 home/.config/nvim/session/**
 home/.config/nvim/bundle/**
+home/.config/nvim/.init.vim-rplugin~
 
 # fish
 home/.config/fish/fish_history
