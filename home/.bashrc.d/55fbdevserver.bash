@@ -18,6 +18,10 @@ if [ -d $HOMEBREW_PREFIX ]; then
   export INFOPATH="$HOMEBREW_PREFIX/share/info:$INFOPATH"
 fi
 
+if [ -d "$DEVTOOLS/arcanist/bin" ]; then
+  export PATH="$DEVTOOLS/arcanist/bin:$PATH"
+fi
+
 function fbhostname {
     host=$1
     [ "$host" == "" ] && host=$(hostname)
