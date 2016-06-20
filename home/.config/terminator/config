@@ -1,28 +1,30 @@
 [global_config]
   enabled_plugins = FBTasksURLHandler, FBPhabricatorURLHandler, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
 [keybindings]
-  new_window = <Primary><Shift>i
+  broadcast_all = None
+  layout_launcher = None
   new_terminator = <Primary><Shift>n
-[profiles]
-  [[default]]
-    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
-    background_image = None
-    background_darkness = 0.94
-    scrollback_lines = 9999
-    background_type = transparent
-    use_system_font = False
-    foreground_color = "#cacaca"
-    use_custom_command = True
-    show_titlebar = False
-    custom_command = env TERM=xterm-256color /bin/bash
-    font = Droid Sans Mono for Powerline Plus Nerd File Types Mono 9
-    allow_bold = False
+  new_window = <Primary><Shift>i
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    allow_bold = False
+    background_darkness = 0.94
+    background_image = None
+    background_type = transparent
+    custom_command = env TERM=xterm-256color /bin/bash
+    font = Droid Sans Mono for Powerline Plus Nerd File Types Mono 9
+    foreground_color = "#cacaca"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
+    scrollback_lines = 9999
+    show_titlebar = False
+    use_custom_command = True
+    use_system_font = False
