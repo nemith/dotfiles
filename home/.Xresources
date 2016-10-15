@@ -4,9 +4,9 @@
 
 ! look & feel
 URxvt.scrollBar: 		false
-URxvt*fading:			30
 URxvt*internalBorder:	0
 URxvt*externalBorder:	0
+URxvt.iso14755: 		false
 
 Urxvt.depth:			32
 URxvt*background: 		#101218
@@ -18,11 +18,14 @@ URxvt.secondaryScroll: 	0
 URxvt.saveLines: 		1000000
 
 ! font
-URxvt.font: xft:Droid Sans Mono for Powerline Plus Nerd File Types Mono:style=Regular:size=9
+URxvt*font: xft:Droid Sans Mono for Powerline Plus Nerd File Types Mono:style=Regular:size=9
 URxvt.letterSpace: -1
 
 ! extentions
-URxvt.perl-ext-common: default,matcher,resize-font,fullscreen
+URxvt.perl-ext-common: default,matcher,resize-font,fullscreen,selection-to-clipboard,new-window,clipboard
+
+! new-window
+URxvt.keysym.Control-Shift-N: perl:new-window
 
 ! fullscreen
 URxvt.keysym.F11: 			perl:fullscreen:switch
@@ -30,6 +33,10 @@ URxvt.keysym.F11: 			perl:fullscreen:switch
 ! resize-font
 URxvt.keysym.Control-0x2b: 	perl:font-size:increase
 URxvt.keysym.Control-0x2d: 	perl:font-size:decrease
+
+URxvt.keysym.Control-C:		perl:clipboard:copy
+URxvt.keysym.Control-V:		perl:clipboard:paste
+URxvt.keysym.Conrrol-A-V: 	perl:clipboard:paste_escaped
 
 ! matcher
 URxvt.url-launcher:      	sensible-browser
