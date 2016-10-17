@@ -1,10 +1,16 @@
 # skip if not on fb laptop
 [ ! -f /etc/fb-machine-owner ] && return
 
-export DEVTOOLS=$HOME/devtools
+if [ -d "$HOME/local/arcanist/bin" ]; then
+  export PATH="$HOME/local/arcanist/bin:$PATH"
+fi
 
-if [ -d "$DEVTOOLS/arcanist/bin" ]; then
-  export PATH="$DEVTOOLS/arcanist/bin:$PATH"
+if [ -d "/opt/fbhg/bin" ]; then
+  export PATH="/opt/fbhg/bin:$PATH"
+fi
+
+if [ -d "$HOME/local/buck/bin" ]; then
+	export PATH="$HOME/local/buck/bin:$PATH"
 fi
 
 function fbhostname {
@@ -20,3 +26,4 @@ function buck_debug {
 	export BUCK_DEBUG_MODE=1
 	export NO_BUCKD=1
 }
+
