@@ -18,7 +18,7 @@ URxvt.secondaryScroll: 	0
 URxvt.saveLines: 		1000000
 
 ! font
-URxvt*font: xft:Droid Sans Mono for Powerline Plus Nerd File Types Mono:style=Regular:size=9
+URxvt*font: xft:Source Code Pro for Powerline:style=Regular:size=8
 URxvt.letterSpace: -1
 
 ! extentions
