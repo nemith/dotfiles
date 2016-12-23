@@ -2,10 +2,13 @@ home/.vim/view/**
 home/.vim/.cache/**
 home/.vim/plugged/**
 home/.vim/bundle/**
+home/.vim/autoload/**
 
 # Nvim
 home/.config/nvim/session/**
 home/.config/nvim/bundle/**
+home/.config/nvim/autoload/**
+home/.config/nvim/plugged/**
 home/.config/nvim/.init.vim-rplugin~
 
 # fish
