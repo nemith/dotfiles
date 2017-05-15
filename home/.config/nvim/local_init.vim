@@ -27,6 +27,16 @@ set modelines=5
 set mouse=a   		"enable mouse
 set mousehide 		"hide when characters are typed
 
+" Splits
+set splitbelow
+set splitright
+map <Bar> <C-W>v<C-W><Right>
+map -     <C-W>s<C-W><Down>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " Keys
 nnoremap ; :
 nnoremap <silent> <F5> :set invnumber<cr>
