@@ -1,3 +1,6 @@
 [submodule "home/.dircolors/solarized"]
 	path = home/.dircolors.d/solarized
 	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "home/.themes/Plano"]
+	path = home/.themes/Plano
+	url = https://github.com/lassekongo83/plano-theme.git
