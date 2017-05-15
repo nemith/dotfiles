@@ -1,6 +1,9 @@
 # skip if not on fb server
 [ ! -f /etc/fbwhoami ] && return
 
+source /etc/fbwhoami
+[ "$DEVICE_HOSTNAME_SCHEME" != "dev" ] && return
+
 # Source Facebook definitions
 source /etc/bashrc
 source /usr/facebook/ops/rc/master.bashrc

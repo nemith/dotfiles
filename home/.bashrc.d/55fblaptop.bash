@@ -27,3 +27,8 @@ function buck_debug {
 	export NO_BUCKD=1
 }
 
+
+function dev {
+    [ "$(klist -cl | grep Expired)" != "" ] && kinit
+    mosh -6 dev -- tmux attach
+}

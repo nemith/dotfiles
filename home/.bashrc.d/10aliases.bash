@@ -1,5 +1,4 @@
 alias vps="mosh coachz.brbe.net -- tmux attach -d"
-alias dev="mosh -6 dev -- tmux attach -t work -d"
 
 # Colorize
 alias ls='ls --color -F'
