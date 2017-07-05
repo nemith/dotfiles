@@ -58,5 +58,11 @@ function fbgopath {
     export GOPATH
 }
 
+function tor_log {
+    id=$(($1))
+    tw_task=$(echo "SELECT run_on FROM switch_job WHERE switch_job.job_id = $id;" | db cdb.intern.tor 2>/dev/null | tail -n1)
+    tw ssh "$tw_task" -- grep -h "$id/" '$(find /logs -type f)'
+}
+
 alias prod='FBNET_SANDBOX="*production*"'
 alias fbnet_db='db cdb.fbnet'
