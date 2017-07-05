@@ -72,7 +72,7 @@ source_script() {
     done
 }
 
-# Execute scripts under .bashrc.d 
+# Execute scripts under .bashrc.d
 if [[ -d $HOME/.bashrc.d ]]; then
     source_script "$HOME"/.bashrc.d/*.bash
 fi
