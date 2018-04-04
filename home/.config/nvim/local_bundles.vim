@@ -17,6 +17,11 @@ Plug 'ryanoasis/vim-webdevicons'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ervandew/supertab'
+
+"Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 "SCM
 Plug 'ludovicchabant/vim-lawrencium'

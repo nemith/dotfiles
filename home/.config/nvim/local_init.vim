@@ -52,12 +52,45 @@ inoremap <C-t> <Esc>:tabnew<CR>
 inoremap <C-b> <Esc>:tabprevious<CR>i
 inoremap <C-n> <Esc>:tabnext<CR>i
 
+" deoplete
+let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+set completeopt+=noselect
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_completion_start_length = 1
+let g:deoplete#enable_smart_case = 1
+"
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#force_py_version = 3
+let g:jedi#show_call_signatures = "1"
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = "2"
+
+let g:jedi#completions_enabled = 1
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger='<leader>.'
+" let g:UltiSnipsJumpForwardTrigger='<leader>r'
+" let g:UltiSnipsJumpBackwardTrigger='<leader>w'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+
+nnoremap <leader>ue :UltiSnipsEdit<CR>
+
+let g:UltiSnipsEditSplit='vertical'
+"
+" let g:UltiSnipsUsePythonVersion = 3
+let g:ultisnips_python_style="google"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets"]
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+
 " Golang
 let g:go_fmt_command = "goimports"
 
 "Remove trailing whitespace
 autocmd BufWritePre * silent! :%s/\s\+$//e
-
 
 " vim-go
 let g:go_fmt_command = "goimports"
