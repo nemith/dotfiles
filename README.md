@@ -1,3 +1,5 @@
+> :warning: **This has been archived and replaced with ansible playbooks at [nemith/playbooks](https://github.com/nemith/playbooks)**
+
 nemith dotfiles
 ===============
 This is my public repository (castle) of dotfiles to be used with [Homesick](https://github.com/technicalpickles/homesick)
